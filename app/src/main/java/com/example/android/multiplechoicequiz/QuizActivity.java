@@ -113,7 +113,9 @@ public class QuizActivity extends AppCompatActivity {
     }
 
     private void updateQuestion(){
-        mQuestionView.setText(mQuestionLibrary.getQuestion(mQuestionNumber));
+        if (mQuestionNumber < mQuestionLibrary.getLength()) {
+
+            mQuestionView.setText(mQuestionLibrary.getQuestion(mQuestionNumber));
         mButtonChoice1.setText(mQuestionLibrary.getChoice1(mQuestionNumber));
         mButtonChoice2.setText(mQuestionLibrary.getChoice2(mQuestionNumber));
         mButtonChoice3.setText(mQuestionLibrary.getChoice3(mQuestionNumber));
@@ -121,7 +123,18 @@ public class QuizActivity extends AppCompatActivity {
 
         mAnswer = mQuestionLibrary.getCorrectAnswer(mQuestionNumber);
         mQuestionNumber++;
+
+    }else {
+        Toast.makeText(QuizActivity.this, "Test is Over", Toast.LENGTH_SHORT).show();
     }
+
+}
+
+//        mAnswer = mQuestionLibrary.getCorrectAnswer(mQuestionNumber);
+//        if (mQuestionNumber < 2) {
+//            mQuestionNumber++;
+//        }
+
 
     private void updateScore(int point){
         mScoreView.setText("" + mScore);

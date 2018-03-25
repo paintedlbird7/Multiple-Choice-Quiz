@@ -6,6 +6,8 @@ package com.example.android.multiplechoicequiz;
 
 public class QuestionLibrary {
 
+
+
     private String mQuestions[] = {
             "Which part of the plant holds it in the soil?",
             "This part of the plant observes energy from the sun.",
@@ -13,11 +15,14 @@ public class QuestionLibrary {
     };
 
     private String mChoices [][] = {
-            {"Roots", "Stem", "Flower"},
-            {"Fruit", "Leaves", "Seeds"},
-            {"Bark", "Flower", "Roots"},
+            {"Roots", "Stem", "Flower", "Petal"},
+            {"Fruit", "Leaves", "Seeds", "Petal"},
+            {"Bark", "Flower", "Roots", "Petal"}
 //            {"Flower", "Leaves", "Stem"}
     };
+
+    public int getLength(){return mQuestions.length;}
+
 
     private String mCorrectAnswers[] = {"Roots", "Leaves", "Flower", "Stem"};
 
@@ -39,6 +44,11 @@ public class QuestionLibrary {
     public String getChoice3(int a) {
         String choice2 = mChoices[a][2];
         return choice2;
+    }
+
+    public String getChoice4(int a) {
+        String choice3 = mChoices[a][3];
+        return choice3;
     }
 
     public String getCorrectAnswer(int a) {
